@@ -4,11 +4,15 @@ import DonationService from '../services/donation-service';
 @inject(DonationService)
 export class Candidate {
 
-  constructor(cs) {
-    this.candidateService = cs;
+  firstName = '';
+  lastName = '';
+  office = '';
+
+  constructor(ds) {
+    this.donationService = ds;
   }
 
-  addCandidate(){
-    this.candidateService.newCandidate(this.firstName, this.lastName, this.office)
+  addCandidate() {
+    this.donationService.addCandidate(this.firstName, this.lastName, this.office);
   }
 }

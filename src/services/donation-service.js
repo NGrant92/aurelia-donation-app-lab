@@ -7,6 +7,7 @@ export default class DonationService {
   donations = [];
   methods = [];
   candidates = [];
+  total = 0;
 
   constructor(data) {
     this.donations = data.donations;
