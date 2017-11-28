@@ -20,6 +20,10 @@ export class App {
     this.donationService = ds;
   }
 
+  signup() {
+    this.showSignup = true;
+  }
+
   login(e) {
     console.log(`Trying to log in ${this.email}`);
     const status = this.donationService.login(this.email, this.password);
