@@ -5,10 +5,16 @@ import DonationService from './services/donation-service';
 @inject(DonationService)
 export class App {
 
+  regFirstName = 'Bart';
+  regLastName = 'Simpson';
+  regEmail = 'bart@simpson.com';
+  regPassword = 'secret';
+
   email = 'marge@simpson.com';
   password = 'secret';
 
   loggedIn = false;
+  showSignup = false;
 
   constructor(ds) {
     this.donationService = ds;
@@ -24,5 +30,10 @@ export class App {
   logout() {
     console.log('Logging out`');
     this.loggedIn = false;
+  }
+
+  addUser(e) {
+    this.showSignup = false;
+    this.donationService.addUser(this.regFirstName, this.regLastName, this.regEmail, this.regPassword);
   }
 }

@@ -51,7 +51,7 @@ export default class DonationService {
       email: email,
       password: password
     };
-    this.users.push(candidate);
+    this.users[email] = user;
     console.log(user.firstName + ' ' + user.lastName + ' is added to User DB');
     console.log(this.users[this.users.length - 1]);
   }
