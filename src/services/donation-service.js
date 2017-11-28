@@ -10,6 +10,7 @@ export default class DonationService {
   donations = [];
   methods = [];
   candidates = [];
+  users = [];
   total = 0;
 
   constructor(data, ea) {
@@ -40,5 +41,16 @@ export default class DonationService {
     };
     this.candidates.push(candidate);
     console.log(candidate.firstName + ' ' + candidate.lastName + ' of office ' + candidate.office + ' is added to Candidate DB');
+  }
+
+  addUser(signUpFirstName, signUpLastName, signUpEmail, signUpPassword) {
+    const user = {
+      firstName: signUpFirstName,
+      lastName: signUpLastName,
+      email: signUpEmail,
+      password: signUpPassword
+    };
+    this.users.push(candidate);
+    console.log(user.firstName + ' ' + user.lastName + ' is added to User DB');
   }
 }
