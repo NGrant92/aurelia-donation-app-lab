@@ -6,8 +6,10 @@ export class App {
   loggedIn = false;
 
   login() {
-    console.log(`Logging in ${this.email}`);
-    this.loggedIn = true;
+    if (`${this.password}` === 'secret') {
+      console.log(`Logging in ${this.email}`);
+      this.loggedIn = true;
+    }
   }
 
   logout() {
