@@ -5,14 +5,6 @@ import DonationService from './services/donation-service';
 @inject(DonationService)
 export class App {
 
-  regFirstName = 'Bart';
-  regLastName = 'Simpson';
-  regEmail = 'bart@simpson.com';
-  regPassword = 'secret';
-
-  email = 'marge@simpson.com';
-  password = 'secret';
-
   loggedIn = false;
   showSignup = false;
 
