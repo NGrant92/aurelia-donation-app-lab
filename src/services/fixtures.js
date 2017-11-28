@@ -13,6 +13,19 @@ export default class Fixtures {
     }
   ];
 
+  donations = [
+    {
+      amount: 23,
+      method: 'cash',
+      candidate: this.candidates[0]
+    },
+    {
+      amount: 212,
+      method: 'paypal',
+      candidate: this.candidates[1]
+    }
+  ];
+
   users = {
     'homer@simpson.com': {
       firstName: 'Homer',
@@ -27,17 +40,4 @@ export default class Fixtures {
       password: 'secret'
     }
   };
-
-  donations = [
-    {
-      amount: 23,
-      method: 'cash',
-      candidate: this.candidates[0]
-    },
-    {
-      amount: 212,
-      method: 'paypal',
-      candidate: this.candidates[1]
-    }
-  ];
 }
