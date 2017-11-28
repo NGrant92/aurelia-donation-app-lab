@@ -1,7 +1,6 @@
 import {inject} from 'aurelia-framework';
 import Fixtures from './fixtures';
-
-import {TotalUpdate} from './messages';
+import {TotalUpdate, LoginStatus} from './messages';
 import {EventAggregator} from 'aurelia-event-aggregator';
 
 @inject(Fixtures, EventAggregator)
@@ -14,10 +13,10 @@ export default class DonationService {
   total = 0;
 
   constructor(data, ea) {
+    this.users = data.users;
     this.donations = data.donations;
     this.candidates = data.candidates;
     this.methods = data.methods;
-    this.users = data.users;
     this.ea = ea;
   }
 
@@ -28,10 +27,11 @@ export default class DonationService {
       candidate: candidate
     };
     this.donations.push(donation);
-    this.total = this.total + parseInt(amount, 10);
-    console.log('Total so far: ' + this.total);
-    this.ea.publish(new TotalUpdate(this.total));
     console.log(amount + ' donated to ' + candidate.firstName + ' ' + candidate.lastName + ': ' + method);
+
+    this.total = this.total + parseInt(amount, 10);
+    console.log('Total so far ' + this.total);
+    this.ea.publish(new TotalUpdate(this.total));
   }
 
   addCandidate(firstName, lastName, office) {
@@ -41,19 +41,16 @@ export default class DonationService {
       office: office
     };
     this.candidates.push(candidate);
-    console.log(candidate.firstName + ' ' + candidate.lastName + ' of office ' + candidate.office + ' is added to Candidate DB');
   }
 
-  addUser(firstName, lastName, email, password) {
-    const user = {
+  register(firstName, lastName, email, password) {
+    const newUser = {
       firstName: firstName,
       lastName: lastName,
       email: email,
       password: password
     };
-    this.users[email] = user;
-    console.log(user.firstName + ' ' + user.lastName + ' is added to User DB');
-    console.log(this.users[this.users.length - 1]);
+    this.users[email] = newUser;
   }
 
   login(email, password) {
@@ -72,7 +69,14 @@ export default class DonationService {
     } else {
       status.message = 'Unknown user';
     }
+    this.ea.publish(new LoginStatus(status));
+  }
 
-    return status;
+  logout() {
+    const status = {
+      success: false,
+      message: ''
+    };
+    this.ea.publish(new LoginStatus(status));
   }
 }
