@@ -17,6 +17,7 @@ export default class DonationService {
     this.donations = data.donations;
     this.candidates = data.candidates;
     this.methods = data.methods;
+    this.users = data.users;
     this.ea = ea;
   }
 
@@ -43,14 +44,15 @@ export default class DonationService {
     console.log(candidate.firstName + ' ' + candidate.lastName + ' of office ' + candidate.office + ' is added to Candidate DB');
   }
 
-  addUser(signUpFirstName, signUpLastName, signUpEmail, signUpPassword) {
+  addUser(firstName, lastName, email, password) {
     const user = {
-      firstName: signUpFirstName,
-      lastName: signUpLastName,
-      email: signUpEmail,
-      password: signUpPassword
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password
     };
     this.users.push(candidate);
     console.log(user.firstName + ' ' + user.lastName + ' is added to User DB');
+    console.log(this.users[this.users.length - 1]);
   }
 }

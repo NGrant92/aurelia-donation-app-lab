@@ -1,20 +1,20 @@
 <template>
 
-  <form submit.trigger="signup()" class="ui form stacked segment">
+  <form submit.trigger="signUpUser()" class="ui form stacked segment">
     <h3 class="ui dividing header"> Sign Up </h3>
     <div class="field">
-      <label>First Name </label> <input value.bind="signUpFirstName" placeholder="First Name">
+      <label>First Name </label> <input value.bind="signUpFirstName" placeholder="First Name" value="Homer">
     </div>
     <div class="field">
-      <label>Last Name </label> <input value.bind="signUpLastName" placeholder="Last Name">
+      <label>Last Name </label> <input value.bind="signUpLastName" placeholder="Last Name" value="Simpson">
     </div>
     <div class="field">
-      <label>Email </label> <input value.bind="signUpEmail" placeholder="Email">
+      <label>Email </label> <input value.bind="signUpEmail" placeholder="Email" value="homer@simpson.com">
     </div>
     <div class="field">
-      <label>Password </label> <input type="password" value.bind="signUpPassword" placeholder="Password">
+      <label>Password </label> <input type="password" value.bind="signUpPassword" placeholder="Password" value="secret">
     </div>
-    <button class="ui blue submit button">Add</button>
+    <button class="ui blue submit button">Sign Up</button>
   </form>
 
 </template>
