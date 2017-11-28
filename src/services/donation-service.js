@@ -1,6 +1,9 @@
 import {inject} from 'aurelia-framework';
 import Fixtures from './fixtures';
 
+import {TotalUpdate} from './messages';
+import {EventAggregator} from 'aurelia-event-aggregator';
+
 @inject(Fixtures)
 export default class DonationService {
 
