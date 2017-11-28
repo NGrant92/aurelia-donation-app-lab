@@ -55,4 +55,24 @@ export default class DonationService {
     console.log(user.firstName + ' ' + user.lastName + ' is added to User DB');
     console.log(this.users[this.users.length - 1]);
   }
+
+  login(email, password) {
+    const status = {
+      success: false,
+      message: ''
+    };
+
+    if (this.users[email]) {
+      if (this.users[email].password === password) {
+        status.success = true;
+        status.message = 'logged in';
+      } else {
+        status.message = 'Incorrect password';
+      }
+    } else {
+      status.message = 'Unknown user';
+    }
+
+    return status;
+  }
 }
