@@ -22,6 +22,8 @@ export default class DonationService {
       candidate: candidate
     };
     this.donations.push(donation);
+    this.total = this.total + parseInt(amount, 10);
+    console.log('Total so far: ' + this.total);
     console.log(amount + ' donated to ' + candidate.firstName + ' ' + candidate.lastName + ': ' + method);
   }
 
